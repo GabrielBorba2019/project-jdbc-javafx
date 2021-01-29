@@ -152,6 +152,7 @@ public class DepartmentListController implements Initializable, DataChangeListen
 					setGraphic(null);
 					return;
 				}
+
 				setGraphic(button);
 				button.setOnAction(event -> removeEntity(obj));
 			}
@@ -159,7 +160,7 @@ public class DepartmentListController implements Initializable, DataChangeListen
 	}
 
 	private void removeEntity(Department obj) {
-		Optional<ButtonType> result = Alerts.showConfirmation("Confirmation", "Are you sure to delete?");
+		Optional<ButtonType> result = Alerts.showConfirmation("Confrimation", "Are you sure to delete?");
 
 		if (result.get() == ButtonType.OK) {
 			if (service == null) {
@@ -171,6 +172,9 @@ public class DepartmentListController implements Initializable, DataChangeListen
 			} catch (DbIntegrityException e) {
 				Alerts.showAlert("Error removing object", null, e.getMessage(), AlertType.ERROR);
 			}
+
 		}
+
 	}
+
 }
